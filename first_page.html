@@ -6,10 +6,6 @@
   <title>The Book Shelf</title>
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
       background-color: #e6e6d8; /* light beige background */
       font-family: Arial, sans-serif;
@@ -19,6 +15,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      height: 100vh; /* full screen */
     }
     .logo svg {
       width: 120px;
@@ -39,6 +37,46 @@
       letter-spacing: 3px;
       color: #333;
     }
+
+    /* Extra space so user can scroll */
+    .content {
+      height: 120vh;
+    }
+
+    /* Buttons container */
+    .btn-container {
+      margin: 50px 0;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      opacity: 0;             /* hidden initially */
+      transform: translateY(30px); /* slightly down */
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .btn-container.show {
+      opacity: 1;
+      transform: translateY(0); /* fade & slide in */
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-signin {
+      background-color: #466076;
+      color: white;
+    }
+    .btn-signup {
+      background-color: #4a714a;
+      color: white;
+    }
+    .btn:hover {
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
@@ -55,5 +93,24 @@
     <h1>THE BOOK SHELF</h1>
     <p>EST 2025</p>
   </div>
+
+  <!-- Scroll down area -->
+  <div class="content">
+    <div class="btn-container" id="buttons">
+      <button class="btn btn-signin" onclick="window.location.href='signin.html'">Sign In</button>
+      <button class="btn btn-signup" onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("scroll", function() {
+      let buttons = document.getElementById("buttons");
+      if (window.scrollY > 100) { // reveal after 100px scroll
+        buttons.classList.add("show");
+      } else {
+        buttons.classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
