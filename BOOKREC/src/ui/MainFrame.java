@@ -23,12 +23,15 @@ public class MainFrame extends JFrame {
         JButton addBtn = createStyledButton("Add Book");
         JButton viewBtn = createStyledButton("View Books");
         JButton searchBtn = createStyledButton("Search Online");
+        JButton recommendBtn = createStyledButton("Get Recommendations");
 
         nav.add(addBtn);
         nav.add(Box.createHorizontalStrut(10));
         nav.add(viewBtn);
         nav.add(Box.createHorizontalStrut(10));
         nav.add(searchBtn);
+        nav.add(Box.createHorizontalStrut(10));
+        nav.add(recommendBtn);
         add(nav, BorderLayout.NORTH);
 
         // Panels
@@ -39,11 +42,13 @@ public class MainFrame extends JFrame {
         ViewBooksPanel viewPanel = new ViewBooksPanel();
         AddBookPanel addPanel = new AddBookPanel(viewPanel);
         SearchBooksPanel searchPanel = new SearchBooksPanel(viewPanel); // pass viewPanel
+        RecommendationPanel recommendPanel = new RecommendationPanel(viewPanel);
 
         // Add panels to card layout
         content.add(addPanel, "ADD");
         content.add(viewPanel, "VIEW");
         content.add(searchPanel, "SEARCH");
+        content.add(recommendPanel, "RECOMMEND");
 
         add(content, BorderLayout.CENTER);
 
@@ -54,6 +59,7 @@ public class MainFrame extends JFrame {
             cardLayout.show(content, "VIEW");
         });
         searchBtn.addActionListener(e -> cardLayout.show(content, "SEARCH"));
+        recommendBtn.addActionListener(e -> cardLayout.show(content, "RECOMMEND"));
     }
 
     private JButton createStyledButton(String text) {

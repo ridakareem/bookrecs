@@ -31,11 +31,20 @@ CREATE TABLE IF NOT EXISTS books (
 -- Sample user
 INSERT IGNORE INTO users (username, password) VALUES ('admin', 'admin123');
 
--- Sample books for the admin user
+-- Sample books for the admin user with various genres
 INSERT IGNORE INTO books (user_id, title, author, cover_url, genres, rating) VALUES
 (1, 'The Great Gatsby', 'F. Scott Fitzgerald', NULL, 'Fiction, Classic', 5),
 (1, 'To Kill a Mockingbird', 'Harper Lee', NULL, 'Fiction, Classic', 5),
-(1, '1984', 'George Orwell', NULL, 'Fiction, Dystopian', 4);
+(1, '1984', 'George Orwell', NULL, 'Fiction, Dystopian', 4),
+(1, 'Pride and Prejudice', 'Jane Austen', NULL, 'Fiction, Classic, Romance', 5),
+(1, 'The Lord of the Rings', 'J.R.R. Tolkien', NULL, 'Fantasy, Adventure', 5),
+(1, 'Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', NULL, 'Fantasy, Young Adult', 5),
+(1, 'Dune', 'Frank Herbert', NULL, 'Science Fiction, Fantasy', 5),
+(1, 'The Murder of Roger Ackroyd', 'Agatha Christie', NULL, 'Mystery, Crime', 5),
+(1, 'The Girl with the Dragon Tattoo', 'Stieg Larsson', NULL, 'Thriller, Mystery', 4),
+(1, 'Long Walk to Freedom', 'Nelson Mandela', NULL, 'Biography, History', 5),
+(1, 'Atomic Habits', 'James Clear', NULL, 'Self-Help, Psychology', 5),
+(1, 'Sapiens', 'Yuval Noah Harari', NULL, 'History, Anthropology', 5);
 
 -- Show the created tables
 SHOW TABLES;

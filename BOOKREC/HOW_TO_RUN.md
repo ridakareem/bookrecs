@@ -59,6 +59,7 @@ When you run the application, here's what happens:
    - Add Book
    - View Books  
    - Search Online
+   - Get Recommendations
 
 ## Login Credentials
 
@@ -127,7 +128,8 @@ Once running, you can:
 1. **Add Books**: Manually add books to your collection
 2. **View Books**: See all your books in a nice table view
 3. **Search Online**: Search for books using Google Books API
-4. **User Management**: Sign up new users or login existing ones
+4. **Get Recommendations**: Select genres to get personalized book recommendations
+5. **User Management**: Sign up new users or login existing ones
 
 ## File Structure
 
@@ -148,6 +150,21 @@ After the application is running:
 1. Create a new user account or use the admin account
 2. Add some books to test the functionality
 3. Try the online search feature
-4. Explore the different panels in the main window
+4. **Use the recommendation feature**: Select genres to discover new books
+5. Explore the different panels in the main window
 
-Enjoy your Book Shelf application! 📚
+## New Recommendation Feature
+
+The **Get Recommendations** tab allows you to:
+- **Select Genres**: Choose from genres based on your reading history or popular genres
+- **Get Personalized Recommendations**: See books recommended based on your preferences
+- **Add to Library**: One-click to add recommended books to your collection
+- **View Book Details**: See title, author, genres, and ratings for each recommendation
+
+### How It Works:
+1. The system analyzes your existing book collection to suggest genres
+2. When you select a genre, it finds books that match that genre
+3. Recommendations are prioritized by ratings and relevance
+4. If no books match in your database, it suggests popular books for that genre
+
+Enjoy your enhanced Book Shelf application! 📚✨
