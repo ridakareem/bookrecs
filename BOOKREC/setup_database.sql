@@ -1,0 +1,45 @@
+-- Database Setup Script for Book Recommendation Application
+-- Based on the Java code analysis
+
+-- Create the database
+CREATE DATABASE IF NOT EXISTS bookdiary;
+
+-- Use the database
+USE bookdiary;
+
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Create books table
+CREATE TABLE IF NOT EXISTS books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NULL,
+    cover_url VARCHAR(500) NULL,
+    genres VARCHAR(500) NULL,
+    rating TINYINT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Insert some sample data (optional)
+-- Sample user
+INSERT IGNORE INTO users (username, password) VALUES ('admin', 'admin123');
+
+-- Sample books for the admin user
+INSERT IGNORE INTO books (user_id, title, author, cover_url, genres, rating) VALUES
+(1, 'The Great Gatsby', 'F. Scott Fitzgerald', NULL, 'Fiction, Classic', 5),
+(1, 'To Kill a Mockingbird', 'Harper Lee', NULL, 'Fiction, Classic', 5),
+(1, '1984', 'George Orwell', NULL, 'Fiction, Dystopian', 4);
+
+-- Show the created tables
+SHOW TABLES;
+
+-- Show table structures
+DESCRIBE users;
+DESCRIBE books;
