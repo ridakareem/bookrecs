@@ -16,15 +16,19 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Create books table
 CREATE TABLE IF NOT EXISTS books (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
-    author VARCHAR(255) NULL,
-    cover_url VARCHAR(500) NULL,
-    genres VARCHAR(500) NULL,
-    rating TINYINT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    author VARCHAR(255) DEFAULT NULL,
+    cover_url VARCHAR(500) DEFAULT NULL,
+    genres VARCHAR(500) DEFAULT NULL,
+    rating TINYINT DEFAULT NULL,
+    year VARCHAR(10) DEFAULT NULL,
+    date_added DATETIME DEFAULT CURRENT_TIMESTAMP,
+    cover_image VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (id),
+    KEY user_id (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Insert some sample data (optional)
